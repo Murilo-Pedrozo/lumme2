@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #e5e5e5;
+    color: #222;
+}
+
+/* O segredo do enquadramento está aqui */
+.hero-container {
+    background-image: url('img/img-principal.jpeg');
+    background-size: cover;
+    
+    /* 85% move a imagem horizontalmente para a esquerda, 
+       garantindo que as modelos fiquem visíveis na direita.
+       center alinha verticalmente.
+    */
+    background-position: 85% center; 
+    background-repeat: no-repeat;
+    
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: transparent; /* Transparente para revelar o fundo */
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h2 {
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.logo span {
+    letter-spacing: 6px;
+    font-size: 10px;
+    display: block;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #222;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+}
+
+.social a {
+    color: #222;
+    text-decoration: none;
+}
+
+/* Seção Principal volta a ocupar largura total com o texto flutuando */
+.principal {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Ocupa o restante do espaço vertical da tela */
+    padding: 0 5%;
+}
+
+.principal-content {
+    width: 45%; /* Limita o texto para não encostar nas modelos */
+    z-index: 2;
+}
+
+.principal-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 7vw, 90px);
+    line-height: 1.05;
+    color: #b13e74;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.principal-content p {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.btn-contato {
+    padding: 18px 45px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+}
+
+.btn-contato:hover {
+    background: #222;
+}
