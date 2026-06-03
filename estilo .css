@@ -10,15 +10,10 @@ body {
     color: #222;
 }
 
-/* O segredo do enquadramento está aqui */
 .hero-container {
     background-image: url('img/img-principal.jpeg');
     background-size: cover;
     
-    /* 85% move a imagem horizontalmente para a esquerda, 
-       garantindo que as modelos fiquem visíveis na direita.
-       center alinha verticalmente.
-    */
     background-position: 85% center; 
     background-repeat: no-repeat;
     
@@ -34,7 +29,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    background: transparent; /* Transparente para revelar o fundo */
+    background: transparent;
 }
 
 .logo {
@@ -73,25 +68,29 @@ nav a:hover {
 
 .social {
     display: flex;
-    gap: 15px;
-    font-size: 18px;
+    gap: 20px; 
 }
 
 .social a {
-    color: #222;
+    color: #000000;
+    font-size: 24px;
     text-decoration: none;
+    transition: opacity 0.2s ease;
 }
 
-/* Seção Principal volta a ocupar largura total com o texto flutuando */
+.social a:hover {
+    opacity: 0.6;
+}
+
 .principal {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Ocupa o restante do espaço vertical da tela */
+    flex-grow: 1;
     padding: 0 5%;
 }
 
 .principal-content {
-    width: 45%; /* Limita o texto para não encostar nas modelos */
+    width: 45%; 
     z-index: 2;
 }
 
@@ -127,4 +126,14 @@ nav a:hover {
 
 .btn-contato:hover {
     background: #222;
+}
+
+.banner{
+    background: #000000;
+    color: white;
+
+    padding: 70px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
