@@ -13,10 +13,9 @@ body {
 .hero-container {
     background-image: url('img/img-principal.jpeg');
     background-size: cover;
-    
-    background-position: 85% center; 
+
+    background-position: 85% center;
     background-repeat: no-repeat;
-    
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -68,7 +67,7 @@ nav a:hover {
 
 .social {
     display: flex;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .social a {
@@ -90,7 +89,7 @@ nav a:hover {
 }
 
 .principal-content {
-    width: 45%; 
+    width: 45%;
     z-index: 2;
 }
 
@@ -128,12 +127,666 @@ nav a:hover {
     background: #222;
 }
 
-.banner{
+.banner {
     background: #000000;
     color: white;
+    font-family: 'Inter', sans-serif;
+    padding: 80px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
 
-    padding: 70px 80px;
+.banner h2 {
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    max-width: 60%;
+}
+
+.banner p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+    text-align: justify;
+    max-width: 20%;
+    color: #ffffff;
+}
+
+.banner p span {
+    color: #b13e74;
+    font-weight: 400;
+}
+
+.sobre {
+    background: #d6d4d4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    padding: 100px 8%;
+}
+
+.sobre-img {
+    width: 48%;
+}
+
+.sobre-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sobre-content {
+    width: 48%;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+}
+
+.sobre-content h2 {
+    color: #c03d76;
+    font-size: 52px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.sobre-content p {
+    font-size: 18px;
+    color: #222222;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.sobre-content p:last-child {
+    margin-bottom: 0;
+}
+
+.sobre-content span {
+    color: #c03d76;
+    font-weight: 400;
+}
+
+.servicos {
+    background: #d6d4d4;
+    /* Mantém o fundo cinza contínuo da seção anterior se aplicável */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    padding: 60px 8% 100px;
+}
+
+.servicos-content {
+    width: 45%;
+}
+
+.subtitulo {
+    color: #c03d76;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.servicos-content h2 {
+    font-family: 'Playfair Display', serif;
+    /* Alinhado com a identidade visual elegante */
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #222;
+    margin-bottom: 45px;
+}
+
+.servicos-lista {
+    margin-bottom: 40px;
+}
+
+.servicos-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #777777;
+    /* Linha sutil igual à imagem */
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #222;
+}
+
+.servicos-item span:first-child {
+    font-weight: 400;
+}
+
+/* O sinal de "+" em rosa */
+.servicos-item span:last-child {
+    color: #c03d76;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.btn-servicos {
+    background: #c03d76;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    border: none;
+    border-radius: 8px;
+    padding: 14px 35px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-servicos:hover {
+    background-color: #a02e5f;
+}
+
+.servicos-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.servicos-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.status {
+    background: #000000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Mantém o alinhamento inicial fixado pelo topo dos cards */
+    padding: 50px 4%;
+    text-align: center;
+}
+
+.status-card {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.status-icon {
+    width: 83px;
+    height: auto; 
+    margin-bottom: 20px;
+}
+
+.status-card h3 {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    min-height: 62px; 
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.status-card h3.numero {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px; 
+    font-weight: 300;
+    letter-spacing: 0;
+    
+    min-height: auto; 
+    line-height: 1; 
+    margin-bottom: 22px;
+}
+
+.status-card p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.portfolio {
+    background: #d6d4d4; 
+    padding: 100px 8%;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.portfolio h2 {
+    color: #c03d76; 
+    font-size: 42px;
+    font-weight: 300; 
+    letter-spacing: 2px; 
+    margin-bottom: 60px;
+}
+
+.portfolio-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; 
+}
+
+.portfolio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-content img {
+    max-width: 800px; 
+    width: 100%;
+    height: auto;
+    border: 8px solid #f2eee7;
+    display: block;
+}
+
+.portfolio-content p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: 1.5px; 
+    margin-top: 30px;
+}
+
+.portfolio-arrow {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #c03d76;
+    color: white;
+    cursor: pointer;
+    font-size: 16px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.portfolio-arrow:hover {
+    background-color: #a02e5f;
+    transform: scale(1.08);
+}
+
+.portfolio-arrow.left {
+    padding-right: 2px;
+}
+
+.portfolio-arrow.right {
+    padding-left: 2px;
+}
+
+.feedbacks {
+    background: #d6d4d4; 
+    padding: 100px 6%;
+    font-family: 'Inter', sans-serif;
+}
+
+.feedbacks h2 {
+    text-align: center;
+    color: #c03d76;
+    margin-bottom: 60px;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.feedback-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.feedback-card {
+    flex: 1;
+    background: #000000;
+    color: white;
+    padding: 40px;
+    
+    /* Voltamos para o arredondamento total, inclusive no canto inferior esquerdo,
+       pois a perninha orgânica "sai" debaixo da própria curva do card */
+    border-radius: 40px; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px;
+    
+    position: relative; 
+}
+
+.feedback-card::after {
+    content: "";
+    position: absolute;
+    
+    /* Posiciona logo abaixo do card, alinhado com o início da curva esquerda */
+    bottom: -25px;
+    left: 40px;
+    
+    /* Tamanho do bloco que vai conter a curva */
+    width: 50px;
+    height: 25px;
+    
+    background: transparent;
+    
+    /* Arredonda o canto superior esquerdo para fazer a curva côncava (para dentro) */
+    border-top-left-radius: 25px;
+    
+    /* O GRANDE TRUQUE: Em vez de pintar o bloco, criamos uma sombra preta 
+       que preenche o espaço e faz o desenho perfeito da onda da imagem */
+    box-shadow: -15px -10px 0 0 #000000;
+}
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.quote {
+    color: #c03d76;
+    font-size: 55px;
+    font-family: Arial, sans-serif; 
+    line-height: 0.6;
+}
+
+.servico-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.depoimento {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #ffffff;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    flex-grow: 1; 
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cliente-info h4 {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 2px;
+    color: #ffffff;
+}
+
+.instagram {
+    font-size: 12px;
+    color: #888888; 
+    display: block;
+}
+
+.estrelas {
+    color: #c03d76;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+/* Container externo para aplicar o fundo cinza e criar as margens laterais */
+.cta-container {
+    background: #d6d4d4; /* Fundo cinza padrão do seu site */
+    padding: 0 4% 60px 4%; /* Margem nas laterais e espaçamento na base */
+}
+
+.cta {
+    background: #000000;
+    color: white;
+    padding: 70px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Cria as bordas arredondadas superiores idênticas ao topo da imagem */
+    border-radius: 40px 40px 0 0; 
+    font-family: 'Inter', sans-serif;
+}
+
+.cta-left {
+    width: 55%;
+}
+
+.cta-left h2 {
+    font-size: 38px; /* Ajustado para bater proporcionalmente com o design */
+    font-weight: 300; /* Estilo mais elegante e fino */
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 25px;
+}
+
+/* Aplica a cor rosa específica apenas no final da pergunta */
+.cta-left h2 .highlight {
+    color: #c03d76;
+    font-weight: 400;
+}
+
+.cta-left p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.cta-right {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Estilização fiel do botão arredondado com efeito hover sutil */
+.cta-button {
+    background: #c03d76;
+    color: white;
+    padding: 18px 35px;
+    border-radius: 18px; /* Cantos bem arredondados conforme a imagem */
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; /* Afastamento perfeito entre o ícone e o texto do botão */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button i {
+    font-size: 20px; /* Ícone levemente maior para melhor leitura */
+}
+
+.cta-button:hover {
+    background-color: #a02e5f;
+    transform: translateY(-2px);
+}
+footer {
+    background: #000000;
+    color: white;
+    /* Linha fina e clean no topo separando o rodapé */
+    border-top: 1px solid #333333; 
+    padding: 70px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Bloco do Logo --- */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo h2 {
+    font-size: 44px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.footer-logo .studio-tag {
+    font-size: 13px;
+    letter-spacing: 7px; /* Letras bem espaçadas ocupando a largura do nome */
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 5px;
+    padding-left: 4px; /* Ajuste óptico de centralização devido ao letter-spacing */
+}
+
+.footer-logo .slogan {
+    margin-top: 35px;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+/* --- Títulos das Colunas --- */
+footer h4 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* --- Links e Textos Gerais do Rodapé --- */
+footer a, footer p {
+    font-size: 14px;
+    color: #cccccc; /* Tom cinza mais suave para os links secundários */
+    text-decoration: none;
+    font-weight: 300;
+    margin: 0;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+.footer-links,
+.footer-contact,
+.footer-social {
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Grid de Navegação em 2 Colunas --- */
+.links-grid {
+    display: flex;
+    gap: 40px; /* Distância entre as duas colunas de link */
+}
+
+.links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espaçamento vertical entre cada item da lista */
+}
+
+/* --- Coluna de Contato --- */
+.footer-contact {
+    gap: 12px;
+}
+
+/* --- Coluna Social --- */
+.footer-social .instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Espaço sutil entre o ícone da câmera e o @ handle */
+}
+
+.footer-social .instagram-link i {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+@media(max-width:1024px){
+
+    header,
+    .hero,
+    .banner,
+    .about,
+    .services,
+    .stats,
+    .cta,
+    footer{
+        padding-left:30px;
+        padding-right:30px;
+    }
+
+    .hero,
+    .about,
+    .services,
+    .banner,
+    .cta,
+    .feedback-grid{
+        flex-direction:column;
+    }
+
+    .hero-text,
+    .hero-image,
+    .about-image,
+    .about-content,
+    .services-content,
+    .services-image,
+    .cta-left{
+        width:100%;
+    }
+
+    .about-content{
+        text-align:left;
+    }
+
+    .banner h2,
+    .banner p{
+        width:100%;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero-text h1{
+        font-size:60px;
+    }
+
+    .services-content h2{
+        font-size:50px;
+    }
+
+    .cta-left h2{
+        font-size:36px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:40px;
+    }
 }
