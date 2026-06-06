@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Literaturnaya';
+    src: url('literaturnaya-regular/Literaturnaya Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +12,17 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: #e5e5e5;
     color: #222;
 }
 
+
 .hero-container {
     background-image: url('img/img-principal.jpeg');
     background-size: cover;
-
     background-position: 85% center;
     background-repeat: no-repeat;
-
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -24,42 +30,39 @@ body {
 }
 
 header {
+    width: 100%;
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5%;
+    padding: 0 4%;
     background: transparent;
 }
 
 .logo {
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
-.logo h2 {
-    font-size: 32px;
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    line-height: 1;
-}
-
-.logo span {
-    letter-spacing: 6px;
-    font-size: 10px;
+.logo-img {
+    height: 165px;
+    width: auto;
     display: block;
+    object-fit: contain;
 }
 
 nav {
     display: flex;
-    gap: 30px;
+    gap: 125px;
 }
 
 nav a {
-    font-size: 14px;
-    font-weight: 400;
-    color: #222;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
     text-decoration: none;
-    transition: 0.3s;
+    letter-spacing: 0.3px;
+    transition: opacity 0.3s;
 }
 
 nav a:hover {
@@ -73,9 +76,8 @@ nav a:hover {
 
 .social a {
     color: #000000;
-    font-size: 24px;
+    font-size: 22px;
     text-decoration: none;
-    transition: opacity 0.2s ease;
 }
 
 .social a:hover {
@@ -95,12 +97,14 @@ nav a:hover {
 }
 
 .principal-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(45px, 7vw, 90px);
-    line-height: 1.05;
-    color: #b13e74;
-    font-weight: 400;
-    margin-bottom: 25px;
+    font-family: 'Literaturnaya', Georgia, serif;
+    font-size: clamp(50px, 6.5vw, 85px);
+    line-height: 0.95;
+    color: #cb2a6e;
+    font-weight: normal;
+    margin-bottom: 30px;
+    letter-spacing: 6px;
+
 }
 
 .principal-content p {
@@ -112,26 +116,26 @@ nav a:hover {
 }
 
 .btn-contato {
-    padding: 18px 45px;
+    padding: 18px 65px;
     background: black;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 500;
     letter-spacing: 1px;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .btn-contato:hover {
     background: #222;
+    transform: translateY(-2px);
 }
 
 .banner {
     background: #000000;
     color: white;
-    font-family: 'Inter', sans-serif;
     padding: 80px 4%;
     display: flex;
     justify-content: space-between;
@@ -183,7 +187,6 @@ nav a:hover {
 .sobre-content {
     width: 48%;
     text-align: right;
-    font-family: 'Inter', sans-serif;
 }
 
 .sobre-content h2 {
@@ -197,7 +200,7 @@ nav a:hover {
 }
 
 .sobre-content p {
-    font-size: 18px;
+    font-size: 20px;
     color: #222222;
     font-weight: 300;
     line-height: 1.6;
@@ -215,7 +218,6 @@ nav a:hover {
 
 .servicos {
     background: #d6d4d4;
-    /* Mantém o fundo cinza contínuo da seção anterior se aplicável */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,7 +231,6 @@ nav a:hover {
 
 .subtitulo {
     color: #c03d76;
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 2px;
@@ -238,8 +239,7 @@ nav a:hover {
 }
 
 .servicos-content h2 {
-    font-family: 'Playfair Display', serif;
-    /* Alinhado com a identidade visual elegante */
+    font-family: 'Literaturnaya', Georgia, serif;
     font-size: 64px;
     font-weight: 400;
     line-height: 1.1;
@@ -257,8 +257,6 @@ nav a:hover {
     align-items: center;
     padding: 18px 0;
     border-bottom: 1px solid #777777;
-    /* Linha sutil igual à imagem */
-    font-family: 'Inter', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
     color: #222;
@@ -268,7 +266,6 @@ nav a:hover {
     font-weight: 400;
 }
 
-/* O sinal de "+" em rosa */
 .servicos-item span:last-child {
     color: #c03d76;
     font-size: 20px;
@@ -278,7 +275,6 @@ nav a:hover {
 .btn-servicos {
     background: #c03d76;
     color: white;
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -310,10 +306,9 @@ nav a:hover {
 .status {
     background: #000000;
     color: white;
-    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start; /* Mantém o alinhamento inicial fixado pelo topo dos cards */
+    align-items: flex-start;
     padding: 50px 4%;
     text-align: center;
 }
@@ -322,12 +317,12 @@ nav a:hover {
     width: 250px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
 .status-icon {
     width: 83px;
-    height: auto; 
+    height: auto;
     margin-bottom: 20px;
 }
 
@@ -337,20 +332,19 @@ nav a:hover {
     line-height: 1.3;
     letter-spacing: 1.5px;
     margin-bottom: 20px;
-    min-height: 62px; 
+    min-height: 62px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
 .status-card h3.numero {
-    font-family: 'Playfair Display', serif;
-    font-size: 60px; 
+    font-size: 60px;
     font-weight: 300;
     letter-spacing: 0;
-    
-    min-height: auto; 
-    line-height: 1; 
+
+    min-height: auto;
+    line-height: 1;
     margin-bottom: 22px;
 }
 
@@ -363,17 +357,16 @@ nav a:hover {
 }
 
 .portfolio {
-    background: #d6d4d4; 
+    background: #d6d4d4;
     padding: 100px 8%;
     text-align: center;
-    font-family: 'Inter', sans-serif;
 }
 
 .portfolio h2 {
-    color: #c03d76; 
+    color: #c03d76;
     font-size: 42px;
-    font-weight: 300; 
-    letter-spacing: 2px; 
+    font-weight: 300;
+    letter-spacing: 2px;
     margin-bottom: 60px;
 }
 
@@ -381,7 +374,7 @@ nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px; 
+    gap: 50px;
 }
 
 .portfolio-content {
@@ -391,7 +384,7 @@ nav a:hover {
 }
 
 .portfolio-content img {
-    max-width: 800px; 
+    max-width: 800px;
     width: 100%;
     height: auto;
     border: 8px solid #f2eee7;
@@ -402,7 +395,7 @@ nav a:hover {
     font-size: 16px;
     font-weight: 400;
     color: #333333;
-    letter-spacing: 1.5px; 
+    letter-spacing: 1.5px;
     margin-top: 30px;
 }
 
@@ -414,8 +407,8 @@ nav a:hover {
     background: #c03d76;
     color: white;
     cursor: pointer;
-    font-size: 16px; 
-    
+    font-size: 16px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,9 +429,8 @@ nav a:hover {
 }
 
 .feedbacks {
-    background: #d6d4d4; 
+    background: #d6d4d4;
     padding: 100px 6%;
-    font-family: 'Inter', sans-serif;
 }
 
 .feedbacks h2 {
@@ -461,40 +453,41 @@ nav a:hover {
     background: #000000;
     color: white;
     padding: 40px;
-    
+
     /* Voltamos para o arredondamento total, inclusive no canto inferior esquerdo,
        pois a perninha orgânica "sai" debaixo da própria curva do card */
-    border-radius: 40px; 
-    
+    border-radius: 40px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 480px;
-    
-    position: relative; 
+
+    position: relative;
 }
 
 .feedback-card::after {
     content: "";
     position: absolute;
-    
+
     /* Posiciona logo abaixo do card, alinhado com o início da curva esquerda */
     bottom: -25px;
     left: 40px;
-    
+
     /* Tamanho do bloco que vai conter a curva */
     width: 50px;
     height: 25px;
-    
+
     background: transparent;
-    
+
     /* Arredonda o canto superior esquerdo para fazer a curva côncava (para dentro) */
     border-top-left-radius: 25px;
-    
+
     /* O GRANDE TRUQUE: Em vez de pintar o bloco, criamos uma sombra preta 
        que preenche o espaço e faz o desenho perfeito da onda da imagem */
     box-shadow: -15px -10px 0 0 #000000;
 }
+
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -505,7 +498,6 @@ nav a:hover {
 .quote {
     color: #c03d76;
     font-size: 55px;
-    font-family: Arial, sans-serif; 
     line-height: 0.6;
 }
 
@@ -523,7 +515,7 @@ nav a:hover {
     color: #ffffff;
     opacity: 0.9;
     margin-bottom: 30px;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .card-footer {
@@ -541,7 +533,7 @@ nav a:hover {
 
 .instagram {
     font-size: 12px;
-    color: #888888; 
+    color: #888888;
     display: block;
 }
 
@@ -551,91 +543,116 @@ nav a:hover {
     letter-spacing: 3px;
 }
 
-/* Container externo para aplicar o fundo cinza e criar as margens laterais */
+/* ================= SEÇÃO CTA (LARGURA TOTAL) ================= */
 .cta-container {
-    background: #d6d4d4; /* Fundo cinza padrão do seu site */
-    padding: 0 4% 60px 4%; /* Margem nas laterais e espaçamento na base */
+    background: #e5e5e5; /* Tom de cinza claro sutil que conecta as seções */
+    padding: 0; /* MUDANÇA CRUCIAL: Retira qualquer recuo para o bloco preto colar nas bordas da tela */
+    width: 100%;
 }
 
 .cta {
     background: #000000;
     color: white;
-    padding: 70px 80px;
+    /* Adiciona padding interno generoso para respirar e afastar o conteúdo das bordas pretas */
+    padding: 80px 6%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     
-    /* Cria as bordas arredondadas superiores idênticas ao topo da imagem */
-    border-radius: 40px 40px 0 0; 
-    font-family: 'Inter', sans-serif;
+    /* Cria aquela linda e imponente borda arredondada apenas no topo */
+    border-radius: 40px 40px 0 0;
 }
 
 .cta-left {
-    width: 55%;
+    width: 50%;
 }
 
 .cta-left h2 {
-    font-size: 38px; /* Ajustado para bater proporcionalmente com o design */
-    font-weight: 300; /* Estilo mais elegante e fino */
-    letter-spacing: 1px;
-    line-height: 1.3;
-    margin-bottom: 25px;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: clamp(28px, 3.2vw, 40px); /* Fonte fluida para nunca quebrar o layout */
+    font-weight: 400;
+    text-transform: uppercase; /* Mantém o padrão forte do cabeçalho de seção */
+    letter-spacing: 0.5px;
+    line-height: 1.25;
+    margin-bottom: 20px;
 }
 
-/* Aplica a cor rosa específica apenas no final da pergunta */
+/* O rosa/magenta oficial e vibrante para a frase de destaque */
+.cta-left h2 span, 
 .cta-left h2 .highlight {
-    color: #c03d76;
-    font-weight: 400;
+    color: #cb2a6e;
+    font-weight: 500;
 }
 
 .cta-left p {
+    font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 300;
-    line-height: 1.6;
-    color: #ffffff;
-    opacity: 0.9;
+    line-height: 1.5;
+    color: #cccccc;
 }
+
+
 
 .cta-right {
-    width: 40%;
+    width: 45%; /* Aumentamos para que o botão caiba de ponta a ponta sem quebrar linha */
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
-/* Estilização fiel do botão arredondado com efeito hover sutil */
 .cta-button {
-    background: #c03d76;
+    background: #cb2a6e;
     color: white;
-    padding: 18px 35px;
-    border-radius: 18px; /* Cantos bem arredondados conforme a imagem */
-    font-size: 14px;
+    padding: 25px 75px;
+    border-radius: 14px;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 22px;
     font-weight: 500;
     letter-spacing: 0.5px;
     text-decoration: none;
+    text-transform: uppercase;
     display: inline-flex;
     align-items: center;
-    gap: 12px; /* Afastamento perfeito entre o ícone e o texto do botão */
+    justify-content: center;
+    gap: 12px;
+    white-space: nowrap;
+    width: auto;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .cta-button i {
-    font-size: 20px; /* Ícone levemente maior para melhor leitura */
+    font-size: 35px; /* Ícone destacado e nítido como na foto */
 }
 
 .cta-button:hover {
-    background-color: #a02e5f;
+    background-color: #b0205b;
     transform: translateY(-2px);
 }
+/* ================= FOOTER (LARGURA TOTAL) ================= */
 footer {
     background: #000000;
     color: white;
-    /* Linha fina e clean no topo separando o rodapé */
-    border-top: 1px solid #333333; 
-    padding: 70px 8%;
+    padding: 60px 6% 90px 6%; 
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    font-family: 'Inter', sans-serif;
+    width: 100%;
+    
+    /* MUDANÇA ESSENCIAL: Diz para o rodapé servir de base para o posicionamento da linha */
+    position: relative; 
+}
+
+/* O SEGREDO DA LINHA CURTA E CENTRALIZADA: */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;             
+    left: 6%;           
+    right: 6%;          
+    
+    border-top: 2px solid rgba(255, 255, 255, 1); 
 }
 
 /* --- Bloco do Logo --- */
@@ -645,43 +662,52 @@ footer {
 }
 
 .footer-logo h2 {
-    font-size: 44px;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 42px;
     font-weight: 300;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
     margin: 0;
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .footer-logo .studio-tag {
-    font-size: 13px;
-    letter-spacing: 7px; /* Letras bem espaçadas ocupando a largura do nome */
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 6.5px;
     font-weight: 400;
     color: #ffffff;
     margin-top: 5px;
-    padding-left: 4px; /* Ajuste óptico de centralização devido ao letter-spacing */
+    padding-left: 2px;
+    text-transform: uppercase;
 }
 
 .footer-logo .slogan {
     margin-top: 35px;
-    font-size: 15px;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 14px;
     font-weight: 300;
     letter-spacing: 0.5px;
-    opacity: 0.9;
-}
-
-/* --- Títulos das Colunas --- */
-footer h4 {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
     color: #ffffff;
 }
 
+/* --- Títulos das Colunas (Ajustado para bater com seu HTML h3/h4) --- */
+footer h3,
+footer h4 {
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
 /* --- Links e Textos Gerais do Rodapé --- */
-footer a, footer p {
-    font-size: 14px;
-    color: #cccccc; /* Tom cinza mais suave para os links secundários */
+footer a,
+footer p {
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #aaaaaa; /* Tom cinza suave e elegante para os links secundários */
     text-decoration: none;
     font-weight: 300;
     margin: 0;
@@ -701,25 +727,25 @@ footer a:hover {
 /* --- Grid de Navegação em 2 Colunas --- */
 .links-grid {
     display: flex;
-    gap: 40px; /* Distância entre as duas colunas de link */
+    gap: 45px;
 }
 
 .links-col {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Espaçamento vertical entre cada item da lista */
+    gap: 14px;
 }
 
 /* --- Coluna de Contato --- */
 .footer-contact {
-    gap: 12px;
+    gap: 14px;
 }
 
 /* --- Coluna Social --- */
 .footer-social .instagram-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px; /* Espaço sutil entre o ícone da câmera e o @ handle */
+    gap: 8px;
 }
 
 .footer-social .instagram-link i {
@@ -728,7 +754,7 @@ footer a:hover {
 }
 
 
-@media(max-width:1024px){
+@media(max-width:1024px) {
 
     header,
     .hero,
@@ -737,9 +763,9 @@ footer a:hover {
     .services,
     .stats,
     .cta,
-    footer{
-        padding-left:30px;
-        padding-right:30px;
+    footer {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .hero,
@@ -747,8 +773,8 @@ footer a:hover {
     .services,
     .banner,
     .cta,
-    .feedback-grid{
-        flex-direction:column;
+    .feedback-grid {
+        flex-direction: column;
     }
 
     .hero-text,
@@ -757,37 +783,37 @@ footer a:hover {
     .about-content,
     .services-content,
     .services-image,
-    .cta-left{
-        width:100%;
+    .cta-left {
+        width: 100%;
     }
 
-    .about-content{
-        text-align:left;
+    .about-content {
+        text-align: left;
     }
 
     .banner h2,
-    .banner p{
-        width:100%;
+    .banner p {
+        width: 100%;
     }
 
-    nav{
-        display:none;
+    nav {
+        display: none;
     }
 
-    .hero-text h1{
-        font-size:60px;
+    .hero-text h1 {
+        font-size: 60px;
     }
 
-    .services-content h2{
-        font-size:50px;
+    .services-content h2 {
+        font-size: 50px;
     }
 
-    .cta-left h2{
-        font-size:36px;
+    .cta-left h2 {
+        font-size: 36px;
     }
 
-    footer{
-        flex-direction:column;
-        gap:40px;
+    footer {
+        flex-direction: column;
+        gap: 40px;
     }
 }
