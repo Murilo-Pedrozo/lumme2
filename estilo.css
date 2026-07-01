@@ -164,7 +164,7 @@ nav a:hover::after {
 .btn-contato {
     padding: clamp(14px, 1.5vw, 18px) clamp(35px, 4vw, 65px);
     background: black;
-    color: white;
+    color: #ffffff;
     border: 1px solid black;
     border-radius: 8px;
     cursor: pointer;
@@ -200,7 +200,7 @@ nav a:hover::after {
 }
 
 .btn-contato:hover {
-    color: white;
+    color: #ffffff;
     border-color: #cb2a6e;
     transform: translateY(-3px);
 }
@@ -209,7 +209,7 @@ nav a:hover::after {
 
 .banner {
     background: #000000;
-    color: white;
+    color: #ffffff;
     padding: clamp(60px, 8vw, 100px) 6%; 
     display: flex;
     justify-content: space-between;
@@ -463,7 +463,7 @@ nav a:hover::after {
 
 .btn-servicos {
     background: #c03d76;
-    color: white;
+    color: #ffffff;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -498,7 +498,7 @@ nav a:hover::after {
 }
 
 .btn-servicos:hover {
-    color: white;
+    color: #ffffff;
     border-color: #000000;
     transform: translateY(-2px);
 }
@@ -528,7 +528,7 @@ nav a:hover::after {
 
 .status {
     background: #000000;
-    color: white;
+    color: #ffffff;
     display: flex;
     justify-content: space-around;
     align-items: center; 
@@ -678,7 +678,7 @@ nav a:hover::after {
     border: none;
     border-radius: 50%;
     background: #c03d76;
-    color: white;
+    color: #ffffff;
     font-size: 18px;
     cursor: pointer;
     flex-shrink: 0;  
@@ -732,7 +732,7 @@ nav a:hover::after {
 .feedback-card {
     flex: 1;
     background: #000000;
-    color: white;
+    color: #ffffff;
     padding: clamp(25px, 3vw, 40px);
     border-radius: 30px; 
     display: flex;
@@ -837,7 +837,7 @@ nav a:hover::after {
 
 .cta {
     background: #000000;
-    color: white;
+    color: #ffffff;
     padding: clamp(60px, 8vw, 110px) 6%; 
     display: flex;
     justify-content: space-between;
@@ -886,7 +886,7 @@ nav a:hover::after {
 
 .cta-button {
     background: #c03d76; 
-    color: white;
+    color: #ffffff;
     padding: clamp(16px, 1.8vw, 22px) clamp(30px, 3vw, 65px); 
     border-radius: 14px;
     font-size: clamp(14px, 1.3vw, 20px);
@@ -913,7 +913,7 @@ nav a:hover::after {
 
 footer {
     background: #000000;
-    color: white;
+    color: #ffffff;
     padding: 80px 8% 90px 8%; 
     display: flex;
     justify-content: space-between;
@@ -957,11 +957,7 @@ footer.show-section::before {
     content: "";
     width: 0;
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        #c03d76,
-        transparent
-    );
+    background: linear-gradient(90deg, #c03d76, transparent);
     margin-top: 28px;
     transition: width 1.4s cubic-bezier(0.16,1,0.3,1);
     display: block;
@@ -988,7 +984,6 @@ footer.show-section .slogan {
     transform: translateY(0);
 }
 
-/* REGRAS GERAIS DOS TÍTULOS DAS COLUNAS */
 footer h4 {
     font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: 13px;
@@ -999,7 +994,6 @@ footer h4 {
     text-transform: uppercase;
 }
 
-/* REGRAS GERAIS DOS LINKS */
 footer a {
     font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: 13.5px;
@@ -1033,7 +1027,6 @@ footer a:hover::after {
     transform-origin: bottom left;
 }
 
-/* ESTRUTURA DAS COLUNAS DE LINKS (LINKS, CONTATO, SOCIAL) */
 .footer-links,
 .footer-contact,
 .footer-social {
@@ -1041,14 +1034,13 @@ footer a:hover::after {
     flex-direction: column;
 }
 
-/* COLUNA 2: NAVEGAÇÃO INTERNA */
 .footer-links {
     width: 25%;
 }
 
 .links-grid {
     display: flex;
-    gap: clamp(20px, 4vw, 50px); /* Ajuste dinâmico de distância entre as duas subcolunas */
+    gap: clamp(20px, 4vw, 50px); 
 }
 
 .links-col {
@@ -1057,10 +1049,9 @@ footer a:hover::after {
     gap: 14px;
 }
 
-/* COLUNA 3: FALE CONOSCO (CORRIGIDA) */
 .footer-contact {
     width: 25%;
-    align-items: flex-start; /* Alinha todo o conteúdo à esquerda perfeitamente */
+    align-items: flex-start; 
     gap: 14px;
 }
 
@@ -1074,36 +1065,86 @@ footer a:hover::after {
     text-align: left;
 }
 
-/* COLUNA 4: REDES SOCIAIS */
 .footer-social {
-    width: 18%;
+    width: 22%;
+    padding: 26px;
+    border: 1px solid rgba(192,61,118,.18);
+    border-radius: 24px;
+    background:linear-gradient(180deg, rgba(192,61,118,.08), rgba(255,255,255,.02) );
+    position: relative;
+    overflow: hidden;
+    transition:transform .6s cubic-bezier(.16,1,.3,1), box-shadow .6s;
+}
+
+.footer-social:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 70px rgba(192,61,118,.18);
+}
+
+.footer-social::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 80%;
+    height: 250%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent );
+    transform: rotate(18deg);
+    transition: 1.4s;
+}
+
+.footer-social:hover::before {
+    left: 140%;
+}
+
+.footer-social h4 {
+    margin-bottom: 10px;
+}
+
+.footer-social h4::after {
+    content: " ↗";
+    color: #c03d76;
+}
+
+.footer-social .social-text {
+    font-size: 13px;
+    color: #ffffff;
+    margin-bottom: 22px;
+    line-height: 1.7;
 }
 
 .footer-social .instagram-link {
-    display: inline-flex;
+    width: 100%;
+    min-height: 58px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    gap: 12px;
+    background: #c03d76;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: .45s;
+    position: relative;
+    overflow: hidden;
 }
 
 .footer-social .instagram-link::after {
-    display: none; /* Remove a linha padrão de hover no Instagram para usar o efeito de deslize */
+    display: none;
 }
 
 .footer-social .instagram-link:hover {
-    color: #c03d76;
-    transform: translateX(6px); 
+    background: #d84b89;
+    color: #ffffff;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow:0 18px 50px rgba(192,61,118,.45);
 }
 
 .footer-social .instagram-link i {
-    font-size: 16px;
-    color: #ffffff;
-    transition: color 0.3s ease;
+    font-size: 22px;
 }
 
-.footer-social .instagram-link:hover i {
-    color: #c03d76;
-}
 /* ================= KEYFRAMES ANIMAÇÃO ================= */
 @keyframes fadeInUp {
     from {
