@@ -36,14 +36,12 @@ body {
 
 header {
     width: 100%;
-    min-height: 100px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 4%;
+    padding: 0 4%;
     background: transparent;
-    flex-wrap: wrap;
-    gap: 20px;
 }
 
 .logo {
@@ -633,11 +631,11 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;  
+    gap: 40px;
     perspective: 1800px;
-    transform-style: preserve-3d;   
-    padding: 20px 0; 
-    overflow: hidden;
+    transform-style: preserve-3d;
+    padding: 20px 45px; /* mesmo espaço que usa no media */
+    overflow: visible;
 }
 
 .portfolio-content {
@@ -942,7 +940,6 @@ footer.show-section::before {
     transform: scaleX(1);
 }
 
-/* COLUNA 1: LOGO E SLOGAN */
 .footer-logo {
     display: flex;
     flex-direction: column;
@@ -950,8 +947,8 @@ footer.show-section::before {
     position: relative;
 }
 
-.logo-img {
-    max-width: 180px; /* Controla o tamanho máximo da imagem da logo */
+.logo-img2 {
+    max-width: 180px; 
     height: auto;
     display: block;
 }
@@ -1214,7 +1211,7 @@ footer a:hover::after {
 /* TABLETS */
 @media (max-width: 1024px) {
 
-    .hero-container{
+    .hero-container {
         background-position: center;
     }
 
@@ -1224,10 +1221,9 @@ footer a:hover::after {
         gap: 25px;
     }
 
-    nav{
-        width: 100%;
-        justify-content: center;
-        gap: 20px;
+    nav {
+        width: auto;
+        gap: 25px;
     }
 
     .social{
@@ -1245,6 +1241,10 @@ footer a:hover::after {
     .principal-content{
         width: 100%;
         max-width: 700px;
+    }
+
+    .principal-content p{
+        color: #ffffff;
     }
 
     .banner,
@@ -1293,125 +1293,343 @@ footer a:hover::after {
         justify-content: center;
         flex-wrap: wrap;
     }
+    
+    .sobre, .servicos, .cta {
+        flex-direction: row; 
+        text-align: left;
+        align-items: center;
+        gap: 40px;
+        padding: 60px 5%;
+    }
+
+    .sobre-content, .sobre-img,
+    .servicos-content, .servicos-img,
+    .cta-left, .cta-right {
+        width: 48%; 
+    }
+
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+        gap: 30px;
+        padding: 60px 5%;
+    }
+
+    .footer-logo, .footer-links, .footer-contact, .footer-social {
+        width: 45%;
+    }
+    
+    footer h4 {
+        text-align: left;
+    }
+
+    .portfolio-container {
+        overflow: visible; 
+    }
+}
+
+
+
+@media (max-width: 1150px) {
+    
+    .portfolio-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+    }
+
+    .portfolio-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0 45px;
+        width: 100%;
+        overflow: visible;
+    }
+
+        .links-grid {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }
 
 
 /* CELULARES */
-@media (max-width: 768px){
-
-    html{
+@media (max-width: 768px) {
+    html, body {
         overflow-x: hidden;
     }
 
-    body{
-        overflow-x: hidden;
+    .hero-container {
+        background-position: 54% center;
+        min-height: 100vh; 
     }
 
-    .logo-img{
+    header {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        height: 80px; 
+        padding: 0 6%;
+    }
+
+    .logo-img {
         height: 90px;
     }
 
-    nav{
-        flex-direction: column;
+    nav {
+        display: none; 
+    }
+
+    .social {
+        width: auto;
+        justify-content: flex-end;
+    }
+
+    .sobre {
+        flex-direction: column-reverse;
+        text-align: center;
         align-items: center;
-        gap: 16px;
+        gap: 30px;
+        padding: 50px 6%;
     }
 
-    nav a{
-        font-size: 16px;
+    .servicos {
+        flex-direction: column; 
+        text-align: center;
+        align-items: center;
+        gap: 30px;
+        padding: 50px 6%;
     }
 
-    .principal{
-        padding: 40px 24px;
+    .cta {
+        flex-direction: column; 
+        text-align: center;
+        align-items: center;
+        gap: 30px;
+        padding: 50px 6%;
     }
 
-    .principal-content h1{
+    .sobre-content, .sobre-img,
+    .servicos-content, .servicos-img,
+    .cta-left, .cta-right {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sobre-content {
+        text-align: center; 
+    }
+
+    .principal-content h1 {
         line-height: 1.1;
         letter-spacing: 1px;
     }
 
-    .btn-contato,
-    .btn-servicos,
-    .cta-button{
-        width: 100%;
-        max-width: 350px;
+    .principal-content p {
+        color: #ffffff;
     }
 
-    .banner{
+    .btn-contato,
+    .btn-servicos,
+    .cta-button {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .banner {
+        flex-direction: column;
         gap: 30px;
     }
 
-    .banner h2{
-        max-width: 100%;
-    }
-
-    .banner p{
+    .banner h2, .banner p {
         max-width: 100%;
         text-align: center;
     }
 
-    .word-rotator{
-        min-width: auto;
-        width: 100%;
+    .word-rotator {
+        display: inline-flex; 
+        width: auto;
+        min-width: 160px; 
         justify-content: center;
-        padding-left: 0;
+        vertical-align: bottom;
     }
 
-    .word{
-        position: relative;
-        white-space: normal;
+    .word {
+        position: absolute; 
+        white-space: nowrap; 
     }
 
-    .servicos-header{
+    .servicos-header {
         gap: 20px;
         align-items: flex-start;
     }
 
-    .status{
+    .status {
         flex-direction: column;
     }
 
-    .status-card{
+    .status-card {
         width: 100%;
         max-width: 100%;
     }
 
-    .portfolio-arrow{
-        width: 45px;
-        height: 45px;
+    .portfolio-container {
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0 45px; 
+        width: 100%;
+        overflow: visible;
     }
 
-    .feedback-card{
+    .portfolio-content {
+        width: 100%;
+        max-width: 100%; 
+    }
+
+    .portfolio-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+    }
+
+    .portfolio-arrow {
+        position: absolute;
+        top: calc(50% - 20px); 
+        z-index: 10;
+        width: 40px;
+        height: 40px;
+        background: #c03d76;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: none !important; 
+    }
+
+    .portfolio-arrow:first-of-type {
+        left: 5px;
+    }
+
+    .portfolio-arrow:last-of-type {
+        right: 5px;
+    }
+
+    .portfolio-arrow:hover {
+        transform: scale(1.05) !important;
+    }
+
+    #portfolio-title {
+        font-size: 14px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .feedback-card {
         border-radius: 24px;
         min-height: auto;
     }
 
-    .feedback-card::after{
+    .feedback-card::after {
         left: 18px;
         width: 34px;
         height: 34px;
         bottom: -12px;
     }
 
-    footer{
-        padding-bottom: 50px;
+    footer {
+        padding: 60px 24px 40px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 45px; 
     }
 
-    .footer-logo::after{
-        margin-left: auto;
-        margin-right: auto;
+    .footer-logo {
+        width: 100%;
+        align-items: center;
     }
+
+    .logo-img2 {
+        max-width: 150px; 
+        margin: 0 auto;
+    }
+
+    footer.show-section .footer-logo::after {
+        width: 80px; 
+        margin: 15px auto 0 auto;
+    }
+
+    .footer-logo .slogan {
+        margin-top: 20px;
+        font-size: 13px;
+    }
+
+    footer h4 {
+        text-align: center;
+        margin-bottom: 18px;
+        width: 100%;
+    }
+
+    .footer-links {
+        width: 100%;
+    }
+
+    .links-grid {
+        justify-content: center;
+        gap: 40px; 
+    }
+
+    .links-col {
+        align-items: center;
+        gap: 12px;
+    }
+
+    .footer-contact {
+        width: 100%;
+        align-items: center; 
+        gap: 12px;
+    }
+
+    .footer-contact h4 {
+        text-align: center;
+    }
+
+    .footer-contact a {
+        align-self: center;
+        text-align: center;
+    }
+
+    .footer-social {
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-social .instagram-link {
+        justify-content: center;
+    }
+
 }
 
-
-/* CELULARES PEQUENOS */
-@media (max-width: 480px){
-
-    .principal-content h1{
+/* CELULARES PEQUENOS (Até 480px) */
+@media (max-width: 480px) {
+    .principal-content h1 {
         font-size: 42px;
     }
 
-    .principal-content p{
+    .principal-content p {
         font-size: 15px;
     }
 
@@ -1420,22 +1638,22 @@ footer a:hover::after {
     .servicos,
     .portfolio,
     .feedbacks,
-    .cta{
+    .cta {
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    .card-footer{
+    .card-footer {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
 
-    .footer-logo h2{
+    .footer-logo h2 {
         font-size: 34px;
     }
 
-    .footer-logo .studio-tag{
+    .footer-logo .studio-tag {
         letter-spacing: 4px;
     }
 }
