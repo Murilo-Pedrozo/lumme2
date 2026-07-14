@@ -141,7 +141,6 @@ nav a:hover::after {
 }
 
 .principal-content h1 {
-    font-family: 'Literaturnaya', Georgia, serif;
     font-size: clamp(42px, 6.5vw, 85px);
     line-height: 1;
     color: #cb2a6e;
@@ -717,7 +716,6 @@ nav a:hover::after {
     text-align: center;
     color: #c03d76;
     margin-bottom: clamp(40px, 5vw, 60px);
-    font-family: 'Literaturnaya', Georgia, serif; 
     font-size: clamp(32px, 4.5vw, 52px); 
     font-weight: 400;
     letter-spacing: 1px;
@@ -854,7 +852,6 @@ nav a:hover::after {
 }
 
 .cta-left h2 {
-    font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: clamp(26px, 3.5vw, 46px); 
     font-weight: 300;
     text-transform: uppercase;
@@ -870,7 +867,6 @@ nav a:hover::after {
 }
 
 .cta-left p {
-    font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: clamp(15px, 1.3vw, 19px); 
     font-weight: 300;
     line-height: 1.5;
@@ -969,7 +965,6 @@ footer.show-section .footer-logo::after {
 
 .footer-logo .slogan {
     margin-top: 25px;
-    font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: 13.5px;
     font-weight: 300;
     letter-spacing: 0.5px;
@@ -985,7 +980,6 @@ footer.show-section .slogan {
 }
 
 footer h4 {
-    font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -995,7 +989,6 @@ footer h4 {
 }
 
 footer a {
-    font-family: 'Montserrat', 'Inter', sans-serif;
     font-size: 13.5px;
     color: #ffffff;
     text-decoration: none;
