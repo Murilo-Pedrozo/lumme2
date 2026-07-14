@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    background: #e5e5e5;
+    background: #d6d4d4;
     color: #222;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -209,7 +209,7 @@ nav a:hover::after {
 .banner {
     background: #000000;
     color: #ffffff;
-    padding: clamp(60px, 8vw, 100px) 6%; 
+    padding: 25px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -279,11 +279,11 @@ nav a:hover::after {
     justify-content: space-between;
     align-items: center;
     gap: clamp(40px, 6vw, 100px); 
-    padding: clamp(60px, 8vw, 120px) 8%;
+    padding: 40px 4%;
 }
 
 .sobre-img {
-    width: 45%;
+    width: 40%;
     position: relative;
     overflow: hidden;
     border-radius: 20px; 
@@ -505,10 +505,11 @@ nav a:hover::after {
 .servicos-img {
     width: 45%; 
     display: flex;
+    align-self: flex-start;
     justify-content: center;
+    margin-top: 150px;
     overflow: hidden;
     border-radius: 20px; 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .servicos-img img {
@@ -531,7 +532,7 @@ nav a:hover::after {
     display: flex;
     justify-content: space-around;
     align-items: center; 
-    padding: clamp(60px, 6vw, 80px) 6%; 
+    padding: 14px; 
     text-align: center;
     position: relative;
     overflow: hidden; 
@@ -571,7 +572,6 @@ nav a:hover::after {
 .status-icon {
     width: clamp(60px, 6vw, 83px);
     height: auto;
-    margin-bottom: 20px;
 }
 
 .status-card h3 {
@@ -607,6 +607,139 @@ nav a:hover::after {
 
 .pulsar {
     animation: pulsarNumero 1.0s ease-in-out infinite alternate;
+}
+
+/* ================= instagram ================= */
+
+.instagram {
+    padding: 40px 4%; 
+    background: #d6d4d4;
+    text-align: center;
+}
+
+.instagram-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto; 
+}
+
+.instagram-feed a {
+    display: block;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.instagram-feed img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.instagram-feed a:hover img {
+    transform: scale(1.05);
+}
+
+.instagram-feed a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); 
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.instagram-feed a:hover::before {
+    opacity: 1;
+}
+
+.instagram-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+    background: #c03d76; 
+    color: #ffffff;
+    border: 1px solid #c03d76; 
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;   
+    position: relative;
+    overflow: hidden;
+    z-index: 1;  
+    transition: 
+        color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+        border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+        transform 0.2s ease;
+}
+
+.btn-instagram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000; 
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+.btn-instagram:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn-instagram:hover {
+    color: #ffffff;
+    border-color: #000000; 
+    transform: translateY(-2px);
+}
+
+.btn-instagram.outline {
+    background: transparent;
+    color: #c03d76;
+    border: 1px solid #c03d76; 
+}
+
+.btn-instagram.outline::before {
+    background: #c03d76; 
+}
+
+.btn-instagram.outline:hover {
+    color: #ffffff; 
+    border-color: #c03d76;
+}
+
+.btn-instagram:active {
+    transform: translateY(1px);
+}
+
+.btn-instagram.outline {
+    background: transparent;
+    color: #555555;
+    border: 2px solid #555555;
+}
+
+.btn-instagram.outline:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 
@@ -813,7 +946,7 @@ nav a:hover::after {
     color: #ffffff;
 }
 
-.instagram {
+.instagram-card {
     font-size: 12px;
     color: #888888;
     display: block;
@@ -910,7 +1043,7 @@ nav a:hover::after {
 footer {
     background: #000000;
     color: #ffffff;
-    padding: 80px 8% 90px 8%; 
+    padding: 70px 8% 0px 8%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -926,14 +1059,8 @@ footer::before {
     left: 8%; 
     right: 8%;
     height: 1px; 
-    background-color: rgba(255, 255, 255, 0.1); /* Linha sutil no topo */
-    transform: scaleX(0);
+    background-color: rgba(255, 255, 255, 1);
     transform-origin: center;
-    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-footer.show-section::before {
-    transform: scaleX(1);
 }
 
 .footer-logo {
@@ -1514,6 +1641,10 @@ footer a:hover::after {
         max-width: 100%;
     }
 
+    .instagram {
+        padding: 100px 8%;
+    }
+
     .portfolio-container {
         display: flex;
         flex-direction: row; 
@@ -1693,13 +1824,13 @@ footer a:hover::after {
 }
 
 /* ================= COMPORTAMENTO DE SCROLL ================= */
-.banner, .sobre, .servicos, .status, .portfolio, .feedbacks, .cta-container, footer {
+ .sobre, .servicos, .status, .portfolio, .feedbacks, .cta-container{
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.banner.show-section, .sobre.show-section, .servicos.show-section, .status.show-section, .portfolio.show-section, .feedbacks.show-section, .cta-container.show-section, footer.show-section {
+ .sobre.show-section, .servicos.show-section, .status.show-section, .portfolio.show-section, .feedbacks.show-section, .cta-container.show-section {
     opacity: 1;
     transform: translateY(0);
 }

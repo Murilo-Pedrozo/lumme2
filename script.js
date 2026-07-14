@@ -11,7 +11,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 const animarSecoes = document.querySelectorAll(
-  '.banner, .sobre, .servicos, .status, .portfolio, .feedbacks, .cta-container, footer'
+  ' .sobre, .servicos, .status, .portfolio, .feedbacks, .cta-container'
 );
 
 animarSecoes.forEach((secao) => {
