@@ -185,3 +185,37 @@ document.querySelector(".left").addEventListener("click", () => {
   }
   trocar(atual, "anterior");
 });
+function abrirImagem(src) {
+    const modal = document.getElementById("imagemModal");
+    const imagem = document.getElementById("imagemAmpliada");
+
+    imagem.src = src;
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function fecharImagem() {
+    const modal = document.getElementById("imagemModal");
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+}
+
+// Fecha ao clicar fora da imagem (no fundo escuro)
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("imagemModal");
+
+    if (modal) {
+        modal.addEventListener("click", function(event) {
+            if (event.target === this) {
+                fecharImagem();
+            }
+        });
+    }
+});
+
+// Fecha ao pressionar ESC
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        fecharImagem();
+    }
+});
