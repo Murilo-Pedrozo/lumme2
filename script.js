@@ -144,30 +144,54 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const portfolio = [
-  { img: "img/portfolio-item1.jpeg", titulo: "IDENTIDADE VISUAL" },
-  { img: "img/portfolio-item2.jpeg", titulo: "BRANDING" },
-  { img: "img/portfolio-item3.jpeg", titulo: "SOCIAL MEDIA" }
+    { img: "img/florência.png" },
+    { img: "img/Althas.png" },
+    { img: "img/Ambar.png" }
 ];
 
 let atual = 0;
 
 const imagem = document.getElementById("portfolio-img");
-const titulo = document.getElementById("portfolio-title");
 const card = document.querySelector(".portfolio-content");
 
 function trocar(indice, direcao) {
-  card.classList.remove("animar-proximo", "animar-anterior");
 
-  void card.offsetWidth;
+    card.classList.remove("animar-proximo", "animar-anterior");
 
-  imagem.src = portfolio[indice].img;
-  titulo.textContent = portfolio[indice].titulo;
+    // Reinicia a animação
+    void card.offsetWidth;
 
-  if (direcao === "proximo") {
-    card.classList.add("animar-proximo");
-  } else {
-    card.classList.add("animar-anterior");
-  }
+    // Troca a imagem
+    imagem.src = portfolio[indice].img;
+
+    // Aplica animação
+    if (direcao === "proximo") {
+        card.classList.add("animar-proximo");
+    } else {
+        card.classList.add("animar-anterior");
+    }
+}
+
+function proximoPortfolio() {
+
+    atual++;
+
+    if (atual >= portfolio.length) {
+        atual = 0;
+    }
+
+    trocar(atual, "proximo");
+}
+
+function anteriorPortfolio() {
+
+    atual--;
+
+    if (atual < 0) {
+        atual = portfolio.length - 1;
+    }
+
+    trocar(atual, "anterior");
 }
 
 document.querySelector(".right").addEventListener("click", () => {

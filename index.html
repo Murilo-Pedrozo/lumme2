@@ -207,6 +207,93 @@
         </div>
     </section>
 
+    <section class="portfolio" id="portfolio">
+        <h2>PORTFÓLIO</h2>
+
+        <div class="portfolio-container">
+
+            <button class="portfolio-arrow left" onclick="anteriorPortfolio()">
+                &#10094;
+            </button>
+
+            <div class="portfolio-slider">
+                <div class="portfolio-content active">
+                    <img id="portfolio-img" src="img/florência.png"
+                        alt="Projeto de identidade visual desenvolvido pela Lummê" onclick="abrirImagem(this.src)">
+                </div>
+            </div>
+
+            <button class="portfolio-arrow right" onclick="proximoPortfolio()">
+                &#10095;
+            </button>
+
+        </div>
+    </section>
+
+    <section class="feedbacks" id="feedbacks">
+        <h2>FEEDBACKS</h2>
+        <div class="feedback-grid">
+            <article class="feedback-card">
+                <div class="card-header">
+                    <div class="quote">”</div>
+                    <span class="servico-tag">GESTÃO DE REDES</span>
+                </div>
+                <p class="depoimento">
+                    Meninas, gostaria de agradecer pelo olhar sensível e por ouvirem e entenderem minhas ideias para
+                    a
+                    elaboração de cada conteúdo, afim de levar posts informativos ao público!<br><br>
+                    Vocês são profissionais incríveis e dedicadas, indico para todos os profissionais que estão
+                    buscando
+                    criação de conteúdo e o gerenciamento de suas redes sociais.
+                </p>
+                <div class="card-footer">
+                    <div class="cliente-info">
+                        <h4>- Julia Bomfim</h4>
+                        <span class="instagram-card">@psi.juliabomfim</span>
+                    </div>
+                    <div class="estrelas">★★★★★</div>
+                </div>
+            </article>
+
+            <article class="feedback-card">
+                <div class="card-header">
+                    <div class="quote">”</div>
+                    <span class="servico-tag">IDENTIDADE VISUAL</span>
+                </div>
+                <p class="depoimento">
+                    Trabalho impecável, sou eu em forma de identidade visual!<br><br>
+                    Vocês são demais meninas!
+                </p>
+                <div class="card-footer">
+                    <div class="cliente-info">
+                        <h4>- Florência Bassanelli</h4>
+                        <span class="instagram-card">@fono.florbassanelli</span>
+                    </div>
+                    <div class="estrelas">★★★★★</div>
+                </div>
+            </article>
+
+            <article class="feedback-card">
+                <div class="card-header">
+                    <div class="quote">”</div>
+                    <span class="servico-tag">IDENTIDADE VISUAL</span>
+                </div>
+                <p class="depoimento">
+                    Solicitei a criação da minha logo. Tentei prever de todas as formas como seriam os esboços e ideias
+                    possíveis, mas ainda assim a Lummê me surpreendeu positivamente! Ficou incrível e autêntico! <br><br> Não
+                    poderia ter escolhido profissionais melhores pra essa tarefa!
+                </p>
+                <div class="card-footer">
+                    <div class="cliente-info">
+                        <h4>- Guilherme</h4>
+                        <span class="instagram-card">@althas.treinamentos</span>
+                    </div>
+                    <div class="estrelas">★★★★★</div>
+                </div>
+            </article>
+        </div>
+    </section>
+
     <section class="instagram" id="instagram">
 
         <div class="instagram-header">
@@ -250,156 +337,71 @@
 
     </section>
 
-   <section class="portfolio" id="portfolio">
-    <h2>PORTFÓLIO</h2>
-    <div class="portfolio-container">
-        <button class="portfolio-arrow left">&#10094;</button>
-        
-        <div class="portfolio-slider">
-            <div class="portfolio-content active">
-                <img id="portfolio-img" src="img/portfolio-item1.jpeg"
-                     alt="Projeto de identidade visual desenvolvido pela Lummê" 
-                     onclick="abrirImagem(this.src)">
-                <p id="portfolio-title">IDENTIDADE VISUAL</p>
+    <section class="cta-container">
+        <div class="cta">
+            <div class="cta-left">
+                <h2>PRONTA PARA PARAR DE<br>SER <span class="highlight">MAIS DO MESMO?</span></h2>
+                <p>Vamos construir uma marca que reflita a essência do seu negócio, <br>fortaleça seu
+                    posicionamento e atraia os clientes certos.</p>
+            </div>
+            <div class="cta-right">
+                <a href="https://wa.me/5519981131713?text=Olá,%20vim%20pelo%20site%20e%20quero%20mais%20informações"
+                    class="cta-button" target="_blank">
+                    <i class="ri-whatsapp-line"></i> QUERO ENTRAR NA MINHA NOVA FASE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="footer-logo">
+            <img src="img/Logo 1 lummê branco.png" class="logo-img2" alt="Lummê Studio">
+        </div>
+
+        <div class="footer-links">
+            <h4>NAVEGAÇÃO</h4>
+            <div class="links-grid">
+                <div class="links-col">
+                    <a href="#home">Home</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#servicos">Serviços</a>
+                </div>
+                <div class="links-col">
+                    <a href="#portfolio">Portfólio</a>
+                    <a href="#feedbacks">Feedbacks</a>
+                </div>
             </div>
         </div>
 
-        <button class="portfolio-arrow right">&#10095;</button>
-    </div>
+        <div class="footer-contact">
+            <h4>FALE CONOSCO</h4>
+            <a href="https://wa.me/5519981131713?text=Olá,%20vim%20pelo%20site%20e%20quero%20mais%20informações"
+                target="_blank">WhatsApp</a>
+            <a href="mailto:lummestudio.st@gmail.com" class="email-link">lummestudio.st@gmail.com</a>
+        </div>
 
-    <!-- Modal de imagem (sem onclick inline) -->
+        <div class="footer-social">
+            <h4>SIGA A LUMMÊ</h4>
+
+            <p class="social-text">
+                Acompanhe projetos,
+                bastidores e novidades.
+            </p>
+
+            <a href="https://instagram.com/lumme.st" target="_blank" class="instagram-link">
+                <i class="ri-instagram-line"></i>
+
+                SEGUIR @LUMME.ST
+            </a>
+
+        </div>
+    </footer>
+
+    <!-- Modal -->
     <div id="imagemModal" class="imagem-modal">
         <span class="fechar-modal" onclick="fecharImagem()">&times;</span>
         <img id="imagemAmpliada" class="imagem-ampliada">
     </div>
-</section>
-
-        <section class="feedbacks" id="feedbacks">
-            <h2>FEEDBACKS</h2>
-            <div class="feedback-grid">
-                <article class="feedback-card">
-                    <div class="card-header">
-                        <div class="quote">”</div>
-                        <span class="servico-tag">GESTÃO DE REDES</span>
-                    </div>
-                    <p class="depoimento">
-                        Meninas, gostaria de agradecer pelo olhar sensível e por ouvirem e entenderem minhas ideias para
-                        a
-                        elaboração de cada conteúdo, afim de levar posts informativos ao público!<br><br>
-                        Vocês são profissionais incríveis e dedicadas, indico para todos os profissionais que estão
-                        buscando
-                        criação de conteúdo e o gerenciamento de suas redes sociais.
-                    </p>
-                    <div class="card-footer">
-                        <div class="cliente-info">
-                            <h4>- Julia Bomfim</h4>
-                            <span class="instagram-card">@psi.juliabomfim</span>
-                        </div>
-                        <div class="estrelas">★★★★★</div>
-                    </div>
-                </article>
-
-                <article class="feedback-card">
-                    <div class="card-header">
-                        <div class="quote">”</div>
-                        <span class="servico-tag">IDENTIDADE VISUAL</span>
-                    </div>
-                    <p class="depoimento">
-                        Trabalho impecável, sou eu em forma de identidade visual!<br><br>
-                        Vocês são demais meninas!
-                    </p>
-                    <div class="card-footer">
-                        <div class="cliente-info">
-                            <h4>- Florência Bassanelli</h4>
-                            <span class="instagram-card">@fono.florbassanelli</span>
-                        </div>
-                        <div class="estrelas">★★★★★</div>
-                    </div>
-                </article>
-
-                <article class="feedback-card">
-                    <div class="card-header">
-                        <div class="quote">”</div>
-                        <span class="servico-tag">GESTÃO DE REDES</span>
-                    </div>
-                    <p class="depoimento">
-                        Meninas, gostaria de agradecer pelo olhar sensível e por ouvirem e entenderem minhas ideias para
-                        a
-                        elaboração de cada conteúdo, afim de levar posts informativos ao público!<br><br>
-                        Vocês são profissionais incríveis e dedicadas, indico para todos os profissionais que estão
-                        buscando
-                        criação de conteúdo e o gerenciamento de suas redes sociais.
-                    </p>
-                    <div class="card-footer">
-                        <div class="cliente-info">
-                            <h4>- Julia Bomfim</h4>
-                            <span class="instagram-card">@psi.juliabomfim</span>
-                        </div>
-                        <div class="estrelas">★★★★★</div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="cta-container">
-            <div class="cta">
-                <div class="cta-left">
-                    <h2>PRONTA PARA PARAR DE<br>SER <span class="highlight">MAIS DO MESMO?</span></h2>
-                    <p>Vamos construir uma marca que reflita a essência do seu negócio, <br>fortaleça seu
-                        posicionamento e atraia os clientes certos.</p>
-                </div>
-                <div class="cta-right">
-                    <a href="https://wa.me/5519981131713?text=Olá,%20vim%20pelo%20site%20e%20quero%20mais%20informações"
-                        class="cta-button" target="_blank">
-                        <i class="ri-whatsapp-line"></i> QUERO ENTRAR NA MINHA NOVA FASE
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <footer id="contato">
-            <div class="footer-logo">
-                <img src="img/Logo 1 lummê branco.png" class="logo-img2" alt="Lummê Studio">
-            </div>
-
-            <div class="footer-links">
-                <h4>NAVEGAÇÃO</h4>
-                <div class="links-grid">
-                    <div class="links-col">
-                        <a href="#home">Home</a>
-                        <a href="#sobre">Sobre</a>
-                        <a href="#servicos">Serviços</a>
-                    </div>
-                    <div class="links-col">
-                        <a href="#portfolio">Portfólio</a>
-                        <a href="#feedbacks">Feedbacks</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-contact">
-                <h4>FALE CONOSCO</h4>
-                <a href="https://wa.me/5519981131713?text=Olá,%20vim%20pelo%20site%20e%20quero%20mais%20informações"
-                    target="_blank">WhatsApp</a>
-                <a href="mailto:lummestudio.st@gmail.com" class="email-link">lummestudio.st@gmail.com</a>
-            </div>
-
-            <div class="footer-social">
-                <h4>SIGA A LUMMÊ</h4>
-
-                <p class="social-text">
-                    Acompanhe projetos,
-                    bastidores e novidades.
-                </p>
-
-                <a href="https://instagram.com/lumme.st" target="_blank" class="instagram-link">
-                    <i class="ri-instagram-line"></i>
-
-                    SEGUIR @LUMME.ST
-                </a>
-
-            </div>
-        </footer>
 </body>
 
 </html>
