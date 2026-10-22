@@ -25,7 +25,7 @@ body {
 /* ================= HEADER ================= */
 
 .hero-container {
-    background-image: url('img/img-principal.jpeg');
+    background-image: url('img/foto cover site lumme.png');
     background-size: cover;
     background-position: 85% center;
     background-repeat: no-repeat;
@@ -167,9 +167,9 @@ nav a:hover::after {
 
 .principal-content p {
     font-size: clamp(16px, 1.8vw, 20px);
-    color: #333;
+    color: #000000;
     margin-bottom: 40px;
-    font-weight: 400;
+    font-weight: 900;
     text-align: justify;
     line-height: 1.4;
     opacity: 0;
