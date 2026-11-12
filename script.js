@@ -1,4 +1,11 @@
-// ================= ANIMAÇÃO DE SURGIMENTO DAS SEÇÕES (SCROLL) =================
+document.documentElement.classList.add('js');
+['.status-card', '.feedback-card', '.servicos-item', '.como-lista li'].forEach((sel) => {
+  document.querySelectorAll(sel).forEach((el, i) => el.style.setProperty('--i', i));
+});
+
+const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ================= REVELAR SEÇÕES AO ROLAR =================
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -6,20 +13,45 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.15
+}, { threshold: 0.12 });
+
+document.querySelectorAll(
+  '.sobre, .servicos, .status, .como, .portfolio, .feedbacks, .instagram, .cta-container, footer'
+).forEach((secao) => observer.observe(secao));
+
+
+// ================= HEADER COM EFEITO AO ROLAR =================
+const header = document.querySelector('header');
+function atualizarHeader() {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+  const barra = document.querySelector('.progresso');
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  if (barra) barra.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+}
+window.addEventListener('scroll', atualizarHeader, { passive: true });
+atualizarHeader();
+
+
+// ================= MENU HAMBÚRGUER =================
+const menuBtn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('menu');
+
+function alternarMenu(abrir) {
+  const aberto = menu.classList.toggle('aberto', abrir);
+  document.body.classList.toggle('menu-aberto', aberto);
+  menuBtn.setAttribute('aria-expanded', aberto);
+  menuBtn.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+  menuBtn.querySelector('i').className = aberto ? 'ri-close-line' : 'ri-menu-line';
+}
+
+menuBtn.addEventListener('click', () => alternarMenu());
+menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => alternarMenu(false)));
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1024) alternarMenu(false);
 });
 
-const animarSecoes = document.querySelectorAll(
-  ' .sobre, .servicos, .status, .portfolio, .feedbacks, .cta-container'
-);
 
-animarSecoes.forEach((secao) => {
-  observer.observe(secao);
-});
-
-
-// ================= SISTEMA DE TROCA DE PALAVRAS (LOOP BANNER) =================
+// ================= TROCA DE PALAVRAS (BANNER) =================
 function iniciarCarrosselDePalavras() {
   const palavras = document.querySelectorAll('.word-rotator .word');
   if (palavras.length === 0) return;
@@ -28,218 +60,171 @@ function iniciarCarrosselDePalavras() {
 
   setInterval(() => {
     const palavraAtual = palavras[indexAtual];
-
     palavraAtual.classList.remove('active');
     palavraAtual.classList.add('exit');
 
     indexAtual = (indexAtual + 1) % palavras.length;
     const proximaPalavra = palavras[indexAtual];
-
     proximaPalavra.classList.remove('exit');
     proximaPalavra.classList.add('active');
 
-    setTimeout(() => {
-      palavraAtual.classList.remove('exit');
-    }, 600);
-
+    setTimeout(() => palavraAtual.classList.remove('exit'), 600);
   }, 2500);
 }
 
 
 // ================= ACCORDION DE SERVIÇOS =================
 function iniciarAccordionServicos() {
-  const itensServicos = document.querySelectorAll('.servicos-item');
+  const itens = document.querySelectorAll('.servicos-item');
 
-  itensServicos.forEach((item) => {
-    item.addEventListener('click', () => {
-      const estaAtivo = item.classList.contains('active');
+  itens.forEach((item) => {
+    const botao = item.querySelector('.servicos-header');
 
-      itensServicos.forEach((outroItem) => {
-        outroItem.classList.remove('active');
+    botao.addEventListener('click', () => {
+      const estavaAtivo = item.classList.contains('active');
+
+      itens.forEach((outro) => {
+        outro.classList.remove('active');
+        outro.querySelector('.servicos-header').setAttribute('aria-expanded', 'false');
       });
 
-      if (!estaAtivo) {
+      if (!estavaAtivo) {
         item.classList.add('active');
+        botao.setAttribute('aria-expanded', 'true');
       }
     });
   });
 }
 
 
-// ================= CONTADOR ANIMADO COM PULSO E LOOP (STATUS) =================
+// ================= CONTADOR (RODA UMA VEZ) =================
 function iniciarContadores() {
-  const numeros = document.querySelectorAll('.status-card h3.numero');
+  document.querySelectorAll('.status-card h3.numero').forEach((num) => {
+    const partes = num.innerText.trim().match(/^(\D*)(\d+)(\D*)$/);
+    if (!partes) return;
 
-  numeros.forEach((num) => {
-    const card = num.closest('.status-card');
+    const [, prefixo, valor, sufixo] = partes;
+    const final = parseInt(valor, 10);
 
-    if (!num.dataset.valorOriginal) {
-      num.dataset.valorOriginal = num.innerText;
+    if (reduzMovimento) {
+      num.innerText = prefixo + final + sufixo;
+      return;
     }
 
-    const textoOriginal = num.dataset.valorOriginal;
-    const valorFinal = parseInt(textoOriginal.replace(/[^0-9]/g, ''));
-    const sufixo = textoOriginal.replace(/[0-9]/g, '');
+    const duracao = 2000;
+    const inicio = performance.now();
 
-    const duracao = 2500;
-    const tempoDestaque = 4500;
-    const pausaZerar = 200;
-    const incremento = valorFinal / (duracao / 16);
-
-    const rodarContador = () => {
-      let valorAtual = 0;
-
-      const atualizarNumero = () => {
-        valorAtual += incremento;
-
-        if (valorAtual >= valorFinal) {
-          num.innerText = valorFinal + sufixo;
-
-          num.classList.add('pulsar');
-          if (card) card.classList.add('piscar-fundo');
-
-          setTimeout(() => {
-            num.classList.remove('pulsar');
-            if (card) card.classList.remove('piscar-fundo');
-
-            num.innerText = "0" + sufixo;
-
-            setTimeout(rodarContador, pausaZerar);
-
-          }, tempoDestaque);
-
-        } else {
-          num.innerText = Math.floor(valorAtual) + sufixo;
-          requestAnimationFrame(atualizarNumero);
-        }
-      };
-
-      atualizarNumero();
+    const tick = (agora) => {
+      const p = Math.min((agora - inicio) / duracao, 1);
+      const suave = 1 - Math.pow(1 - p, 3); // ease-out
+      num.innerText = prefixo + Math.round(final * suave) + sufixo;
+      if (p < 1) requestAnimationFrame(tick);
     };
 
-    rodarContador();
+    requestAnimationFrame(tick);
   });
 }
 
-iniciarContadores();
 
-// ================= INICIALIZADOR GLOBAL (DOM CONTENT LOADED) =================
-document.addEventListener('DOMContentLoaded', () => {
-  iniciarCarrosselDePalavras();
-  iniciarAccordionServicos();
-
-  const statusSection = document.querySelector('.status');
-  if (statusSection) {
-    const statusObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          iniciarContadores();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    statusObserver.observe(statusSection);
-  }
-});
-
+// ================= PORTFÓLIO =================
 const portfolio = [
-    { img: "img/florência.png" },
-    { img: "img/Althas.png" },
-    { img: "img/Ambar.png" }
+  { img: 'img/florência.png', titulo: 'Florência Bassanelli' },
+  { img: 'img/Althas.png', titulo: 'Althas Treinamentos' },
+  { img: 'img/Ambar.png', titulo: 'Ambar' }
 ];
 
 let atual = 0;
 
-const imagem = document.getElementById("portfolio-img");
-const card = document.querySelector(".portfolio-content");
+// Pré-carrega as imagens para a troca não piscar
+portfolio.forEach((p) => { const i = new Image(); i.src = p.img; });
+
+const imagemPortfolio = document.getElementById('portfolio-img');
+const tituloPortfolio = document.getElementById('portfolio-title');
+const cardPortfolio = document.querySelector('.portfolio-content');
 
 function trocar(indice, direcao) {
+  cardPortfolio.classList.remove('animar-proximo', 'animar-anterior');
+  void cardPortfolio.offsetWidth; // reinicia a animação
 
-    card.classList.remove("animar-proximo", "animar-anterior");
+  imagemPortfolio.src = portfolio[indice].img;
+  tituloPortfolio.textContent = portfolio[indice].titulo;
 
-    // Reinicia a animação
-    void card.offsetWidth;
-
-    // Troca a imagem
-    imagem.src = portfolio[indice].img;
-
-    // Aplica animação
-    if (direcao === "proximo") {
-        card.classList.add("animar-proximo");
-    } else {
-        card.classList.add("animar-anterior");
-    }
+  cardPortfolio.classList.add(direcao === 'proximo' ? 'animar-proximo' : 'animar-anterior');
 }
 
 function proximoPortfolio() {
-
-    atual++;
-
-    if (atual >= portfolio.length) {
-        atual = 0;
-    }
-
-    trocar(atual, "proximo");
+  atual = (atual + 1) % portfolio.length;
+  trocar(atual, 'proximo');
 }
 
 function anteriorPortfolio() {
-
-    atual--;
-
-    if (atual < 0) {
-        atual = portfolio.length - 1;
-    }
-
-    trocar(atual, "anterior");
+  atual = (atual - 1 + portfolio.length) % portfolio.length;
+  trocar(atual, 'anterior');
 }
 
-document.querySelector(".right").addEventListener("click", () => {
-  atual++;
-  if (atual >= portfolio.length) {
-    atual = 0;
+// Swipe no celular
+const sliderPortfolio = document.querySelector('.portfolio-slider');
+let toqueInicial = null;
+
+sliderPortfolio.addEventListener('touchstart', (e) => {
+  toqueInicial = e.touches[0].clientX;
+}, { passive: true });
+
+sliderPortfolio.addEventListener('touchend', (e) => {
+  if (toqueInicial === null) return;
+  const diferenca = e.changedTouches[0].clientX - toqueInicial;
+  if (Math.abs(diferenca) > 50) {
+    diferenca < 0 ? proximoPortfolio() : anteriorPortfolio();
   }
-  trocar(atual, "proximo");
+  toqueInicial = null;
 });
 
-document.querySelector(".left").addEventListener("click", () => {
-  atual--;
-  if (atual < 0) {
-    atual = portfolio.length - 1;
-  }
-  trocar(atual, "anterior");
-});
+
+// ================= MODAL DE IMAGEM =================
 function abrirImagem(src) {
-    const modal = document.getElementById("imagemModal");
-    const imagem = document.getElementById("imagemAmpliada");
-
-    imagem.src = src;
-    modal.style.display = "flex";
-    document.body.style.overflow = "hidden";
+  document.getElementById('imagemAmpliada').src = src;
+  document.getElementById('imagemModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 }
 
 function fecharImagem() {
-    const modal = document.getElementById("imagemModal");
-    modal.style.display = "none";
-    document.body.style.overflow = "";
+  document.getElementById('imagemModal').style.display = 'none';
+  document.body.style.overflow = '';
 }
 
-// Fecha ao clicar fora da imagem (no fundo escuro)
-document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("imagemModal");
-
-    if (modal) {
-        modal.addEventListener("click", function(event) {
-            if (event.target === this) {
-                fecharImagem();
-            }
-        });
-    }
+document.getElementById('imagemModal').addEventListener('click', function (event) {
+  if (event.target === this) fecharImagem();
 });
 
-// Fecha ao pressionar ESC
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") {
-        fecharImagem();
-    }
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    fecharImagem();
+    alternarMenu(false);
+  }
+});
+
+
+// ================= BOTÕES (sem onclick no HTML) =================
+document.querySelector('.portfolio-arrow.left').addEventListener('click', anteriorPortfolio);
+document.querySelector('.portfolio-arrow.right').addEventListener('click', proximoPortfolio);
+imagemPortfolio.addEventListener('click', () => abrirImagem(imagemPortfolio.src));
+document.querySelector('.fechar-modal').addEventListener('click', fecharImagem);
+
+
+// ================= INICIALIZAÇÃO =================
+document.addEventListener('DOMContentLoaded', () => {
+  iniciarCarrosselDePalavras();
+  iniciarAccordionServicos();
+
+  const status = document.querySelector('.status');
+  if (status) {
+    const statusObserver = new IntersectionObserver((entries, obs) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        iniciarContadores();
+        obs.disconnect();
+      }
+    }, { threshold: 0.3 });
+
+    statusObserver.observe(status);
+  }
 });

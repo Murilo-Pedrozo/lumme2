@@ -1,0 +1,308 @@
+/* ==========================================================
+   estilo-melhorias.css
+   Carregar DEPOIS do estilo.css (já está no index.html).
+   Corrige bugs, melhora responsividade, animações e estilo.
+   ========================================================== */
+
+/* ---------- Fontes ---------- */
+@font-face {
+    font-family: 'Literaturnaya';
+    src: url('literaturnaya-regular/Literaturnaya%20Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body { font-family: 'Montserrat', system-ui, sans-serif; }
+
+h1,
+.sobre-content h2,
+.servicos-content h2,
+.portfolio h2,
+.feedbacks h2,
+.instagram h2 {
+    font-family: 'Literaturnaya', Georgia, serif;
+}
+
+html { scroll-padding-top: 80px; }
+
+:focus-visible { outline: 2px solid #cb2a6e; outline-offset: 3px; }
+
+/* ---------- Header fixo com efeito ao rolar ---------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: auto;
+    padding: 10px 4%;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(214, 212, 212, .88);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .06);
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+header.scrolled::before { opacity: 1; }
+
+.logo a { display: flex; }
+
+.logo-img {
+    height: clamp(64px, 8vw, 110px);
+    transition: height .4s cubic-bezier(.16, 1, .3, 1);
+}
+
+header.scrolled .logo-img { height: clamp(48px, 5vw, 60px); }
+
+.hero-container {
+    position: relative;
+    min-height: 100svh;
+    padding-top: clamp(84px, 10vw, 130px);
+}
+
+.principal { position: relative; z-index: 1; }
+
+/* ---------- Menu hambúrguer (tablet e celular) ---------- */
+.menu-toggle {
+    display: none;
+    position: relative;
+    z-index: 1001;
+    background: none;
+    border: 0;
+    padding: 6px;
+    font-size: 30px;
+    line-height: 1;
+    color: #000;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .social { width: auto; margin-left: auto; justify-content: flex-end; }
+    .menu-toggle { display: block; }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        background: rgba(214, 212, 212, .98);
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform .5s cubic-bezier(.16, 1, .3, 1), visibility .5s;
+        z-index: 1000;
+    }
+
+    nav.aberto { transform: none; visibility: visible; }
+    nav a { font-size: 22px; opacity: 1; animation: none; transform: none; }
+    body.menu-aberto { overflow: hidden; }
+
+    /* Leitura do texto branco sobre a foto */
+    .hero-container::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .35);
+        z-index: 0;
+    }
+
+    /* Depoimentos em carrossel horizontal */
+    .feedback-grid {
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 30px;
+        scrollbar-width: none;
+    }
+
+    .feedback-grid::-webkit-scrollbar { display: none; }
+    .feedback-card { flex: 0 0 min(85%, 420px); width: auto; scroll-snap-align: center; }
+}
+
+@media (max-width: 768px) {
+    .servicos-img { margin-top: 0; }
+}
+
+/* ---------- Contraste e espaçamento ---------- */
+.sobre-content p { color: #2b2b2b; font-weight: 400; }
+.subtitulo { color: #a8265f; font-weight: 600; }
+.servicos-desc p { color: #333; font-weight: 400; }
+.depoimento { opacity: .92; font-weight: 400; }
+.banner { padding: clamp(32px, 4vw, 56px) 4%; }
+.status { padding: clamp(30px, 4vw, 50px) 4%; }
+
+/* ---------- Revelar seções (só esconde se o JS estiver ativo) ---------- */
+.sobre, .servicos, .status, .portfolio, .feedbacks, .cta-container { opacity: 1; transform: none; }
+
+.js .sobre, .js .servicos, .js .status, .js .portfolio,
+.js .feedbacks, .js .cta-container, .js .instagram {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.16, 1, .3, 1);
+}
+
+.js .sobre.show-section, .js .servicos.show-section, .js .status.show-section,
+.js .portfolio.show-section, .js .feedbacks.show-section,
+.js .cta-container.show-section, .js .instagram.show-section {
+    opacity: 1;
+    transform: none;
+}
+
+/* Entrada em cascata dos itens (use style="--i:N" no HTML) */
+.js .status-card, .js .feedback-card, .js .servicos-item { opacity: 0; }
+
+.js .show-section .status-card,
+.js .show-section .feedback-card,
+.js .show-section .servicos-item {
+    opacity: 1;
+    animation: fadeInUp .8s cubic-bezier(.16, 1, .3, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 120ms + 150ms);
+}
+
+/* ---------- Serviços (accordion acessível) ---------- */
+button.servicos-header {
+    width: 100%;
+    background: none;
+    border: 0;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.servicos-item.active .servicos-desc { max-height: 600px; }
+
+a.btn-servicos { display: inline-block; text-decoration: none; text-align: center; }
+
+/* ---------- Portfólio ---------- */
+.portfolio-slider { flex: 1; min-width: 0; max-width: 900px; }
+.portfolio-content img { touch-action: pan-y; }
+.portfolio-content.animar-proximo { animation: virarDireita .8s cubic-bezier(.16, 1, .3, 1) both; }
+.portfolio-content.animar-anterior { animation: virarEsquerda .8s cubic-bezier(.16, 1, .3, 1) both; }
+
+/* ---------- Instagram ---------- */
+.instagram h2 { font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; color: #222; margin-top: 6px; }
+
+.btn-instagram.outline { background: transparent; color: #222; border: 1px solid #222; }
+.btn-instagram.outline::before { background: #000; }
+.btn-instagram.outline:hover { color: #fff; border-color: #000; }
+
+/* ---------- Botão flutuante de WhatsApp ---------- */
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    z-index: 90;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+    transition: transform .3s cubic-bezier(.16, 1, .3, 1);
+}
+
+.whatsapp-float:hover { transform: scale(1.08); }
+
+/* ---------- Touch: sem hover "preso" ---------- */
+@media (hover: none) {
+    .status-card:hover, .feedback-card:hover { transform: none; box-shadow: none; background: none; }
+    .servicos-item:hover .servicos-header { padding-left: 0; color: #222; }
+    .servicos-item:hover::after { transform: scaleX(0); }
+    .sobre-img:hover img, .servicos-img:hover img { transform: none; }
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .sobre, .js .servicos, .js .status, .js .portfolio,
+    .js .feedbacks, .js .cta-container, .js .instagram {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== Animações, conversão e novas seções ===== */
+.linha { display: block; overflow: hidden; padding-bottom: .08em; }
+.linha > span { display: block; transform: translateY(110%); animation: subirLinha 1s cubic-bezier(.16,1,.3,1) forwards; }
+.linha:nth-child(2) > span { animation-delay: .12s; }
+.linha:nth-child(3) > span { animation-delay: .24s; }
+@keyframes subirLinha { to { transform: none; } }
+.principal-content h1 { animation: none; }
+.hero-kw { display: block; margin-top: 14px; font-size: .85em; font-weight: 600; }
+
+.progresso { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: #cb2a6e; transform: scaleX(0); transform-origin: left; z-index: 200; }
+
+/* Accordion fluido (anima a altura real) */
+.servicos-desc { display: grid; grid-template-rows: 0fr; max-height: none; overflow: hidden; opacity: 0; transition: grid-template-rows .5s cubic-bezier(.25,1,.5,1), opacity .4s ease; }
+.servicos-desc > p { min-height: 0; overflow: hidden; }
+.servicos-item.active .servicos-desc { grid-template-rows: 1fr; max-height: none; opacity: 1; }
+a.link-servico { display: inline-block; margin-top: 14px; color: #a8265f; font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* Fotos que se revelam */
+.js .sobre-img img, .js .servicos-img img { clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.16,1,.3,1) .2s, transform .8s cubic-bezier(.16,1,.3,1); }
+.js .show-section .sobre-img img, .js .show-section .servicos-img img { clip-path: inset(0); }
+
+/* Parallax leve (só onde o navegador suporta) */
+@supports (animation-timeline: view()) {
+  .servicos-img { animation: paralaxe linear both; animation-timeline: view(); }
+  @keyframes paralaxe { from { transform: translateY(40px); } to { transform: translateY(-40px); } }
+}
+
+/* Como funciona */
+.como { background: #d6d4d4; padding: clamp(60px, 8vw, 110px) 8%; }
+.como h2 { text-align: center; color: #c03d76; font-family: 'Literaturnaya', Georgia, serif; font-size: clamp(32px, 4.5vw, 52px); font-weight: 400; margin-bottom: clamp(36px, 5vw, 60px); }
+.como-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; list-style: none; max-width: 1200px; margin: 0 auto; }
+.como-lista li { border-top: 1px solid rgba(0,0,0,.35); padding-top: 20px; }
+.como-num { font-family: 'Literaturnaya', Georgia, serif; font-size: 44px; color: #c03d76; line-height: 1; }
+.como-lista h3 { font-size: 18px; font-weight: 600; margin: 14px 0 8px; }
+.como-lista p { line-height: 1.6; color: #2b2b2b; }
+.como-cta { text-align: center; margin-top: 48px; }
+.js .como { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
+.js .como.show-section { opacity: 1; transform: none; }
+.js .show-section .como-lista li { animation: fadeInUp .8s cubic-bezier(.16,1,.3,1) backwards; animation-delay: calc(var(--i, 0) * 120ms + 150ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .como { opacity: 1; transform: none; }
+  .servicos-img { animation: none; }
+  .js .sobre-img img, .js .servicos-img img { clip-path: none; }
+}
+
+/* Antes eram estilos inline no HTML */
+a.btn-contato { text-decoration: none; display: inline-block; text-align: center; }
+button.fechar-modal { background: none; border: 0; padding: 0; }
+
+/* Como funciona: 3 colunas x 2 linhas */
+.como-lista { grid-template-columns: repeat(3, 1fr); gap: 48px 32px; }
+@media (max-width: 900px) { .como-lista { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .como-lista { grid-template-columns: 1fr; } }
